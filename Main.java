@@ -10,9 +10,8 @@ public class Main {
 
         List<String> lines = readFileLines(filePath);
 
-        List<String> sortedLines = lines.stream()
-                .sorted(String::compareTo)
-                .toList();
+        List<String> sortedLines = sortLines(lines);
+
         System.out.println("Результат после сортировки:");
         for (String line : sortedLines) {
             System.out.println(line);
@@ -33,5 +32,11 @@ public class Main {
             System.err.println("Ошибка при чтении файла: " + e.getMessage());
         }
         return lines;
+    }
+
+    private static List<String> sortLines(List<String> list) {
+        return list.stream()
+                .sorted(String::compareTo)
+                .toList();
     }
 }
