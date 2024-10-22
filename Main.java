@@ -10,6 +10,12 @@ public class Main {
 
         List<String> lines = readFileLines(filePath);
 
+        List<String> sortedLines = lines.stream()
+                .sorted(String::compareTo)
+                .toList();
+        for (String line : sortedLines) {
+            System.out.println(line);
+        }
     }
 
     private static List<String> readFileLines(String filePath) {
@@ -19,7 +25,6 @@ public class Main {
             String line;
             while ((line = br.readLine()) != null) {
                 lines.add(line);
-                System.out.println(line);
             }
         } catch (IOException e) {
             System.err.println("Ошибка при чтении файла: " + e.getMessage());
