@@ -13,18 +13,21 @@ public class Main {
         List<String> sortedLines = lines.stream()
                 .sorted(String::compareTo)
                 .toList();
+        System.out.println("Результат после сортировки:");
         for (String line : sortedLines) {
             System.out.println(line);
         }
     }
 
     private static List<String> readFileLines(String filePath) {
+        System.out.println("Прочитано из файла:");
         List<String> lines = new ArrayList<>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = br.readLine()) != null) {
                 lines.add(line);
+                System.out.println(line);
             }
         } catch (IOException e) {
             System.err.println("Ошибка при чтении файла: " + e.getMessage());
