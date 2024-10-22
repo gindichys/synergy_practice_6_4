@@ -12,13 +12,13 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         List<String> strings = new ArrayList<>();
 
-        System.out.println("Выберите вариант работы программы:");
+        System.out.println("Выберите вариант работы программы (введите 'exit' для завершения программы):");
         System.out.println("1. Чтение из файла example.txt");
         System.out.println("2. Ввод пользователем слов для сортировки и последующее сохранение в result.txt");
         while (true) {
             String input = scanner.nextLine();
             switch (input) {
-                case "1": {
+                case "1" -> {
                     String filePath = "example.txt";
 
                     List<String> lines = readFileLines(filePath);
@@ -32,7 +32,7 @@ public class Main {
                     scanner.close();
                     return;
                 }
-                case "2": {
+                case "2" -> {
                     List<String> lines = inputLines();
 
                     List<String> sortedLines = sortLines(lines);
@@ -43,7 +43,11 @@ public class Main {
                     scanner.close();
                     return;
                 }
-                default: {
+                case "exit" -> {
+                    scanner.close();
+                    return;
+                }
+                default -> {
                     System.out.println("Неверный ввод.");
                 }
             }
